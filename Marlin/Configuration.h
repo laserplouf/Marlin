@@ -653,7 +653,7 @@
 // Mechanical endstop with COM to ground and NC to Signal uses "false" here (most common setup).
 #define X_MIN_ENDSTOP_INVERTING false // Set to true to invert the logic of the endstop. // TMC2209_StallGuard
 #define Y_MIN_ENDSTOP_INVERTING false // Set to true to invert the logic of the endstop. // TMC2209_StallGuard
-#define Z_MIN_ENDSTOP_INVERTING false // Set to true to invert the logic of the endstop. // Probe replace Endstop ?
+#define Z_MIN_ENDSTOP_INVERTING true  // Set to true to invert the logic of the endstop. // Probe replace Endstop ?
 #define X_MAX_ENDSTOP_INVERTING false // Set to true to invert the logic of the endstop. // No MAX endstop
 #define Y_MAX_ENDSTOP_INVERTING false // Set to true to invert the logic of the endstop. // No MAX endstop
 #define Z_MAX_ENDSTOP_INVERTING false // Set to true to invert the logic of the endstop. // No MAX endstop
@@ -740,14 +740,14 @@
  * Override with M92
  *                                      X, Y, Z, E0 [, E1[, E2...]]
  */
-#define DEFAULT_AXIS_STEPS_PER_UNIT   { 80, 80, 400, 500 }
+#define DEFAULT_AXIS_STEPS_PER_UNIT   { 80, 80, 400, 450 }
 
 /**
  * Default Max Feed Rate (mm/s)
  * Override with M203
  *                                      X, Y, Z, E0 [, E1[, E2...]]
  */
-#define DEFAULT_MAX_FEEDRATE          { 200, 200, 100, 25 }
+#define DEFAULT_MAX_FEEDRATE          { 200, 200, 100, 25 }   // old { 200, 200, 100, 25 }
 
 //#define LIMITED_MAX_FR_EDITING        // Limit edit via M203 or LCD to DEFAULT_MAX_FEEDRATE * 2
 #if ENABLED(LIMITED_MAX_FR_EDITING)
@@ -840,7 +840,7 @@
  * The probe replaces the Z-MIN endstop and is used for Z homing.
  * (Automatically enables USE_PROBE_FOR_Z_HOMING.)
  */
-#define Z_MIN_PROBE_USES_Z_MIN_ENDSTOP_PIN
+//#define Z_MIN_PROBE_USES_Z_MIN_ENDSTOP_PIN
 
 // Force the use of the probe for Z-axis homing
 //#define USE_PROBE_FOR_Z_HOMING
@@ -1125,8 +1125,8 @@
 
 // Invert the stepper direction. Change (or reverse the motor connector) if an axis goes the wrong way.
 #define INVERT_X_DIR false
-#define INVERT_Y_DIR true
-#define INVERT_Z_DIR false
+#define INVERT_Y_DIR false
+#define INVERT_Z_DIR true
 
 // @section extruder
 
@@ -1160,8 +1160,8 @@
 // @section machine
 
 // The size of the print bed
-#define X_BED_SIZE 300
-#define Y_BED_SIZE 300
+#define X_BED_SIZE 250
+#define Y_BED_SIZE 250
 
 // Travel limits (mm) after homing, corresponding to endstop positions.
 #define X_MIN_POS 0
@@ -1169,7 +1169,7 @@
 #define Z_MIN_POS 0
 #define X_MAX_POS X_BED_SIZE
 #define Y_MAX_POS Y_BED_SIZE
-#define Z_MAX_POS 400
+#define Z_MAX_POS 250  //400
 
 /**
  * Software Endstops
